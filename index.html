@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- SEO Primary -->
+  <title>BizLens — See Any Product as a Business</title>
+  <meta name="description" content="Analyze any product, brand, or company through a business strategy lens. Get instant insights on marketing, revenue models, competitive moats, SWOT analysis, and more.">
+  <meta name="keywords" content="product analysis, business strategy, marketing analysis, competitive intelligence, brand analysis, SWOT, business model">
+  <meta name="author" content="BizLens">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://yourdomain.com/">
+
+  <!-- Open Graph (for link previews on LinkedIn, Facebook, WhatsApp) -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://yourdomain.com/">
+  <meta property="og:title" content="BizLens — See Any Product as a Business">
+  <meta property="og:description" content="Analyze any product, brand, or company through a business strategy lens. Instant AI-powered marketing & strategy intelligence.">
+  <meta property="og:image" content="https://yourdomain.com/og-image.png">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="BizLens — See Any Product as a Business">
+  <meta name="twitter:description" content="Instant AI-powered business & marketing analysis for any product or brand.">
+  <meta name="twitter:image" content="https://yourdomain.com/og-image.png">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🔍</text></svg>">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Mono:wght@400;500&family=DM+Sans:ital,wght@0,300;0,400;0,600;1,300&display=swap" rel="stylesheet">
+
+  <!-- Schema.org structured data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "BizLens",
+    "description": "AI-powered business and marketing intelligence tool. Analyze any product or brand instantly.",
+    "url": "https://yourdomain.com",
+    "applicationCategory": "BusinessApplication",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+  }
+  </script>
+
+  <style>
+    :root {
+      --bg: #0a0a08;
+      --surface: #111110;
+      --border: #1e1e1c;
+      --accent: #e8ff47;
+      --accent2: #ff6b35;
+      --accent3: #47b8ff;
+      --text: #e8e6e0;
+      --muted: #5a5850;
+      --success: #4dff91;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'DM Sans', sans-serif;
+      overflow-x: hidden;
+    }
+
+    /* Grain */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 999;
+      opacity: 0.4;
+    }
+
+    /* NAV */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      border-bottom: 1px solid var(--border);
+      background: rgba(10,10,8,0.92);
+      backdrop-filter: blur(20px);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 48px;
+      height: 60px;
+    }
+
+    .nav-logo {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 24px;
+      letter-spacing: 4px;
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    .nav-links { display: flex; gap: 32px; align-items: center; }
+
+    .nav-links a {
+      font-family: 'DM Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--muted);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: var(--text); }
+
+    .nav-cta {
+      background: var(--accent) !important;
+      color: #0a0a08 !important;
+      padding: 8px 20px !important;
+      font-weight: 600 !important;
+      transition: background 0.2s !important;
+    }
+
+    .nav-cta:hover { background: #fff !important; }
+
+    /* HERO */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 100px 24px 60px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* BG grid pattern */
+    .hero::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(var(--border) 1px, transparent 1px),
+        linear-gradient(90deg, var(--border) 1px, transparent 1px);
+      background-size: 60px 60px;
+      opacity: 0.4;
+      pointer-events: none;
+    }
+
+    /* Glow orb */
+    .hero-glow {
+      position: absolute;
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, rgba(232,255,71,0.06) 0%, transparent 70%);
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      pointer-events: none;
+    }
+
+    .hero-content { position: relative; z-index: 2; max-width: 900px; }
+
+    .hero-eyebrow {
+      font-family: 'DM Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 24px;
+      animation: fadeUp 0.6s ease both;
+    }
+
+    .hero-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(64px, 12vw, 160px);
+      line-height: 0.88;
+      letter-spacing: 2px;
+      margin-bottom: 32px;
+      animation: fadeUp 0.6s 0.1s ease both;
+    }
+
+    .hero-title span { color: var(--accent); }
+
+    .hero-subtitle {
+      font-size: clamp(16px, 2.5vw, 20px);
+      color: var(--muted);
+      line-height: 1.6;
+      max-width: 560px;
+      margin: 0 auto 48px;
+      animation: fadeUp 0.6s 0.2s ease both;
+    }
+
+    .hero-input-group {
+      display: flex;
+      gap: 0;
+      max-width: 560px;
+      margin: 0 auto;
+      animation: fadeUp 0.6s 0.3s ease both;
+    }
+
+    .hero-input {
+      flex: 1;
+      background: var(--surface);
+      border: 1px solid rgba(232,255,71,0.3);
+      border-right: none;
+      color: var(--text);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 15px;
+      padding: 16px 20px;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+
+    .hero-input:focus { border-color: var(--accent); }
+    .hero-input::placeholder { color: var(--muted); }
+
+    .hero-btn {
+      background: var(--accent);
+      color: #0a0a08;
+      border: none;
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 20px;
+      letter-spacing: 2px;
+      padding: 0 32px;
+      cursor: pointer;
+      transition: background 0.2s;
+      white-space: nowrap;
+    }
+
+    .hero-btn:hover { background: #fff; }
+
+    .hero-note {
+      font-family: 'DM Mono', monospace;
+      font-size: 11px;
+      color: var(--muted);
+      margin-top: 16px;
+      animation: fadeUp 0.6s 0.4s ease both;
+    }
+
+    /* Ticker */
+    .ticker-wrap {
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      overflow: hidden;
+      padding: 14px 0;
+      background: var(--surface);
+    }
+
+    .ticker {
+      display: flex;
+      gap: 0;
+      animation: ticker 30s linear infinite;
+      white-space: nowrap;
+    }
+
+    .ticker-item {
+      font-family: 'DM Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--muted);
+      padding: 0 48px;
+      border-right: 1px solid var(--border);
+    }
+
+    .ticker-item span { color: var(--accent); margin-right: 12px; }
+
+    @keyframes ticker {
+      from { transform: translateX(0); }
+      to { transform: translateX(-50%); }
+    }
+
+    /* FEATURES */
+    .section {
+      padding: 100px 48px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .section-label {
+      font-family: 'DM Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 16px;
+    }
+
+    .section-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(40px, 6vw, 72px);
+      line-height: 0.9;
+      margin-bottom: 60px;
+    }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: var(--border);
+    }
+
+    .feature {
+      background: var(--bg);
+      padding: 36px 32px;
+      position: relative;
+      overflow: hidden;
+      transition: background 0.3s;
+    }
+
+    .feature:hover { background: var(--surface); }
+
+    .feature-icon {
+      font-size: 28px;
+      margin-bottom: 16px;
+    }
+
+    .feature-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 24px;
+      letter-spacing: 1px;
+      margin-bottom: 10px;
+      color: var(--text);
+    }
+
+    .feature-desc {
+      font-size: 13px;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    .feature-accent {
+      position: absolute;
+      bottom: 0; left: 0;
+      height: 2px;
+      width: 0;
+      background: var(--accent);
+      transition: width 0.3s ease;
+    }
+
+    .feature:hover .feature-accent { width: 100%; }
+
+    /* HOW IT WORKS */
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2px;
+    }
+
+    .step {
+      background: var(--surface);
+      padding: 40px 32px;
+      position: relative;
+    }
+
+    .step-num {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 80px;
+      line-height: 1;
+      color: var(--border);
+      margin-bottom: 16px;
+    }
+
+    .step-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 28px;
+      letter-spacing: 1px;
+      color: var(--accent);
+      margin-bottom: 10px;
+    }
+
+    .step-desc {
+      font-size: 14px;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    /* CTA SECTION */
+    .cta-section {
+      background: var(--accent);
+      padding: 80px 48px;
+      text-align: center;
+    }
+
+    .cta-section h2 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(48px, 8vw, 100px);
+      color: #0a0a08;
+      line-height: 0.9;
+      margin-bottom: 24px;
+    }
+
+    .cta-section p {
+      font-size: 16px;
+      color: rgba(10,10,8,0.6);
+      margin-bottom: 36px;
+    }
+
+    .cta-btn {
+      display: inline-block;
+      background: #0a0a08;
+      color: var(--accent);
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 22px;
+      letter-spacing: 3px;
+      padding: 16px 48px;
+      text-decoration: none;
+      transition: all 0.2s;
+    }
+
+    .cta-btn:hover { background: #fff; color: #0a0a08; }
+
+    /* FOOTER */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 32px 48px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .footer-logo {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 20px;
+      letter-spacing: 3px;
+      color: var(--accent);
+    }
+
+    .footer-text {
+      font-family: 'DM Mono', monospace;
+      font-size: 11px;
+      color: var(--muted);
+      letter-spacing: 1px;
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (max-width: 900px) {
+      .features-grid, .steps { grid-template-columns: 1fr 1fr; }
+      nav { padding: 0 20px; }
+      .section { padding: 60px 20px; }
+      footer { padding: 24px 20px; }
+      .cta-section { padding: 60px 24px; }
+    }
+
+    @media (max-width: 600px) {
+      .features-grid, .steps { grid-template-columns: 1fr; }
+      .nav-links { display: none; }
+      .hero-input-group { flex-direction: column; }
+      .hero-input { border-right: 1px solid rgba(232,255,71,0.3); }
+      .hero-btn { padding: 16px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="/" class="nav-logo">BizLens</a>
+  <div class="nav-links">
+    <a href="#features">Features</a>
+    <a href="#how">How It Works</a>
+    <a href="analyze.html" class="nav-cta">Try It Free →</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-glow"></div>
+  <div class="hero-content">
+    <div class="hero-eyebrow">// AI-Powered Business Intelligence</div>
+    <h1 class="hero-title">See Every<br>Product as a<br><span>Business</span></h1>
+    <p class="hero-subtitle">Instant marketing strategy, revenue model, competitive moat, and SWOT analysis for any product or brand — in seconds.</p>
+    <div class="hero-input-group">
+      <input class="hero-input" id="heroInput" type="text" placeholder="Try: Nike, Spotify, Red Bull...">
+      <button class="hero-btn" onclick="goAnalyze()">ANALYZE</button>
+    </div>
+    <div class="hero-note">Free · No signup required · Powered by AI</div>
+  </div>
+</section>
+
+<!-- TICKER -->
+<div class="ticker-wrap">
+  <div class="ticker">
+    <div class="ticker-item"><span>→</span> Nike</div>
+    <div class="ticker-item"><span>→</span> Spotify</div>
+    <div class="ticker-item"><span>→</span> Red Bull</div>
+    <div class="ticker-item"><span>→</span> Apple</div>
+    <div class="ticker-item"><span>→</span> Tesla</div>
+    <div class="ticker-item"><span>→</span> Airbnb</div>
+    <div class="ticker-item"><span>→</span> Duolingo</div>
+    <div class="ticker-item"><span>→</span> McDonald's</div>
+    <div class="ticker-item"><span>→</span> Notion</div>
+    <div class="ticker-item"><span>→</span> Zara</div>
+    <!-- duplicate for seamless loop -->
+    <div class="ticker-item"><span>→</span> Nike</div>
+    <div class="ticker-item"><span>→</span> Spotify</div>
+    <div class="ticker-item"><span>→</span> Red Bull</div>
+    <div class="ticker-item"><span>→</span> Apple</div>
+    <div class="ticker-item"><span>→</span> Tesla</div>
+    <div class="ticker-item"><span>→</span> Airbnb</div>
+    <div class="ticker-item"><span>→</span> Duolingo</div>
+    <div class="ticker-item"><span>→</span> McDonald's</div>
+    <div class="ticker-item"><span>→</span> Notion</div>
+    <div class="ticker-item"><span>→</span> Zara</div>
+  </div>
+</div>
+
+<!-- FEATURES -->
+<section class="section" id="features">
+  <div class="section-label">// What You Get</div>
+  <div class="section-title">Every Angle.<br>Every Strategy.</div>
+  <div class="features-grid">
+    <div class="feature">
+      <div class="feature-icon">📊</div>
+      <div class="feature-title">Business Model</div>
+      <div class="feature-desc">Revenue streams, unit economics, pricing strategy. Understand exactly how this business makes money.</div>
+      <div class="feature-accent"></div>
+    </div>
+    <div class="feature">
+      <div class="feature-icon">📣</div>
+      <div class="feature-title">Marketing Intelligence</div>
+      <div class="feature-desc">Primary channels, key messages, target audience, and the tactics driving growth.</div>
+      <div class="feature-accent"></div>
+    </div>
+    <div class="feature">
+      <div class="feature-icon">🏰</div>
+      <div class="feature-title">Competitive Moat</div>
+      <div class="feature-desc">What protects this business from competition — network effects, brand, switching costs, and more.</div>
+      <div class="feature-accent"></div>
+    </div>
+    <div class="feature">
+      <div class="feature-icon">⚡</div>
+      <div class="feature-title">SWOT Analysis</div>
+      <div class="feature-desc">Strengths, weaknesses, opportunities, threats — structured for real strategic insight.</div>
+      <div class="feature-accent"></div>
+    </div>
+    <div class="feature">
+      <div class="feature-icon">📈</div>
+      <div class="feature-title">Business Metrics</div>
+      <div class="feature-desc">Brand power, pricing power, loyalty, and growth potential scored and visualized.</div>
+      <div class="feature-accent"></div>
+    </div>
+    <div class="feature">
+      <div class="feature-icon">🔍</div>
+      <div class="feature-title">The Hidden Insight</div>
+      <div class="feature-desc">The one non-obvious strategic truth about this business that most people completely miss.</div>
+      <div class="feature-accent"></div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section style="background: var(--surface); padding: 80px 0;" id="how">
+  <div class="section" style="padding-top:0;padding-bottom:0">
+    <div class="section-label">// How It Works</div>
+    <div class="section-title">Three Steps.<br>Full Clarity.</div>
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">01</div>
+        <div class="step-title">Enter Any Product</div>
+        <div class="step-desc">Type a brand, product, or company name. Anything from Nike to your local coffee shop.</div>
+      </div>
+      <div class="step">
+        <div class="step-num">02</div>
+        <div class="step-title">AI Analyzes It</div>
+        <div class="step-desc">Our AI dissects the business model, marketing strategy, positioning, and competitive landscape.</div>
+      </div>
+      <div class="step">
+        <div class="step-num">03</div>
+        <div class="step-title">See Everything</div>
+        <div class="step-desc">Get a full business intelligence dashboard with metrics, SWOT, moat analysis, and key insights.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <h2>Start Seeing<br>Like a Strategist</h2>
+  <p>Free. Instant. No signup needed.</p>
+  <a href="analyze.html" class="cta-btn">ANALYZE A PRODUCT →</a>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">BizLens</div>
+  <div class="footer-text">© 2026 BizLens · See every product as a business</div>
+  <div class="footer-text">Powered by Claude AI</div>
+</footer>
+
+<script>
+  function goAnalyze() {
+    const val = document.getElementById('heroInput').value.trim();
+    if (val) {
+      sessionStorage.setItem('bizlens_product', val);
+    }
+    window.location.href = 'analyze.html';
+  }
+
+  document.getElementById('heroInput').addEventListener('keydown', e => {
+    if (e.key === 'Enter') goAnalyze();
+  });
+
+  // Animate features on scroll
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((e, i) => {
+      if (e.isIntersecting) {
+        e.target.style.animation = `fadeUp 0.5s ${i * 0.07}s ease both`;
+        observer.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.feature, .step').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>

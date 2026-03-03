@@ -108,7 +108,7 @@ Return ONLY a valid JSON object (no markdown, no backticks, no explanation) with
           generationConfig: {
             temperature: 0.7,
             maxOutputTokens: 1500,
-            responseMimeType: 'application/json'
+            
           }
         })
       });

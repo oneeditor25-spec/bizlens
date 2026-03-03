@@ -116,7 +116,9 @@ Return ONLY a valid JSON object (no markdown, no backticks, no explanation) with
       if (!response.ok) {
   const err = await response.json();
   console.error('Gemini FULL error:', err);
-  return res.status(502).json({ error: err });
+        return res.status(502).json({
+  error: err.error?.message || JSON.stringify(err)
+});
 }
       const data = await response.json();
       resultText = data.candidates[0].content.parts[0].text;

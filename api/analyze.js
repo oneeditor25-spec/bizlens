@@ -114,11 +114,10 @@ Return ONLY a valid JSON object (no markdown, no backticks, no explanation) with
       });
 
       if (!response.ok) {
-        const err = await response.json();
-        console.error('Gemini error:', err);
-        return res.status(502).json({ error: 'Gemini service error. Check your API key.' });
-      }
-
+  const err = await response.json();
+  console.error('Gemini FULL error:', err);
+  return res.status(502).json({ error: err });
+}
       const data = await response.json();
       resultText = data.candidates[0].content.parts[0].text;
     }

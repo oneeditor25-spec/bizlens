@@ -96,7 +96,9 @@ Return ONLY a valid JSON object (no markdown, no backticks, no explanation) with
 
     // ── Google Gemini ────────────────────────────────────────────────────────
     if (model === 'gemini') {
-      const geminiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${process.env.GEMINI_API_KEY}`;
+
+
+      const geminiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${process.env.GEMINI_API_KEY}`;
 
       const response = await fetch(geminiUrl, {
         method: 'POST',
